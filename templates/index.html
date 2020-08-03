@@ -10,7 +10,7 @@
     {% if tasks|length < 1 %}
     <h4 style="text-align: center">There are no tasks. Create one below!</h4>
     {% else %}
-    <table>
+    <table style="border:1px solid black;margin-left:auto;margin-right:auto;margin-bottom:20px;padding:2px;border-spacing:20px;">
         <tr>
             <th>Task</th>
             <th>Added</th>
@@ -29,7 +29,7 @@
         {% endfor %}
     </table>
     {% endif %}
-    <div class="form">
+    <div class="form" align="center">
         <form action="/" method="POST">
             <input type="text" name="content" id="content">
             <input type="submit" value="Add Task">
