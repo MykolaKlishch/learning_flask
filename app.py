@@ -34,5 +34,16 @@ def index():
         return render_template('index.html', tasks=tasks)
 
 
+@app.route("/delete/<int:id_>")
+def delete(id_):
+    task_to_delete = Todo.query.get_or_404(id_)
+    try:
+        db.session.delete(task_to_delete)
+        db.session.commit()
+        return redirect("/")
+    except:
+        return "There was an issue deleting your task"
+
+
 if __name__ == "__main__":
     app.run(debug=True)
